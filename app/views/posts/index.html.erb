@@ -1,0 +1,9 @@
+<% @posts.reverse.first(20).each do |post| %>
+  <%= link_to user_path(post.user) do %>
+  <div class="post-content">
+    <h3><%= image_tag "https://kitt.lewagon.com/placeholder/users/#{post.user.github}", class: 'img-circle', style: 'width: 50px'%>
+    <%= post.user.name %></h3>
+    <h4><%= post.content %></h4>
+</div>
+<% end %>
+<% end %>

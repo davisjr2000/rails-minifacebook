@@ -1,8 +1,8 @@
-<h1> Users </h1>
+<h1> Le Wagonners </h1>
 <ul>
 <% @users.each do |user| %>
   <%= link_to user_path(user) do %>
-  <li><h2><%= user.name %></h2></li>
+  <li><h2><%= image_tag "https://kitt.lewagon.com/placeholder/users/#{user.github}", class: 'img-circle', style: 'width: 50px'%> <%= user.name %></h2></li>
  <% end %>
 <% end %>
 </ul>
