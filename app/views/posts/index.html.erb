@@ -1,11 +1,20 @@
 <div class="col-xs-12 col-xs-offset-2 ">
  <% @posts.reverse.first(20).each do |post| %>
   <%= link_to user_path(post.user) do %>
-  <div class="post-content ">
-    <h3><%= image_tag "https://kitt.lewagon.com/placeholder/users/#{post.user.github}", class: 'img-circle', style: 'width: 50px'%>
-    <%= post.user.name %></h3>
-    <p><%= post.content %></p>
-</div>
+    <div class="post-content ">
+      <h3><%= image_tag "https://kitt.lewagon.com/placeholder/users/#{post.user.github}", class: 'img-circle', style: 'width: 50px'%>
+      <%= post.user.name %></h3>
+      <p>
+        <i class="far fa-clock"></i>
+      <% if Time.now.day == post.created_at.day && Time.now.month == post.created_at.month %>
+        <%= post.created_at.to_s.split(" ")[1] %>
+      <% else %>
+        <%= post.created_at.to_s.split(" ")[0] %>
+      <% end %>
+      </p>
+      <p><%= post.content %></p>
+      </div>
+  </div>
 <% end %>
 <% end %>
 

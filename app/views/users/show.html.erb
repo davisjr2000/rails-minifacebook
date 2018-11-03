@@ -9,7 +9,8 @@
     <h1><i class="far fa-user"> &nbsp </i><%= @user.name %></h1>
     <h2><i class="fab fa-github"> &nbsp </i><%= @user.github %></h2>
     <h3><i class="fas fa-suitcase"> &nbsp </i><%= @user.job %></h3>
-    <h3>Likes <%= @user.food %></h3>
+    <h3>Gets.chomp <%= @user.food %></h3>
+    <h4>Member since <%= @user.created_at.to_s.split(" ")[0] %></h4>
     <h3><%= link_to "Update" ,edit_user_path(@user) %></h3>
     <h3><%= link_to "Delete", user_path(@user),
           method: :delete,
@@ -20,5 +21,5 @@
 </div>
 
 <% @user.posts.first(20).each do |post| %>
-  <div class="post-content-profile"> <p><%= post.content %></p></div>
+  <div class="post-content-profile"><p><%= post.content %></p></div>
 <% end %>
