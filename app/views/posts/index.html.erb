@@ -4,8 +4,7 @@
     <div class="post-content ">
       <h3><%= image_tag "https://kitt.lewagon.com/placeholder/users/#{post.user.github}", class: 'img-circle', style: 'width: 50px'%>
       <%= post.user.name %></h3>
-      <p>
-        <i class="far fa-clock"></i>
+      <p> <i class="far fa-clock"></i>
       <% if Time.now.day == post.created_at.day && Time.now.month == post.created_at.month %>
         <%= post.created_at.to_s.split(" ")[1] %>
       <% else %>
@@ -14,7 +13,6 @@
       </p>
       <p><%= post.content %></p>
       </div>
+  <% end %>
+<% end %>
   </div>
-<% end %>
-<% end %>
-
