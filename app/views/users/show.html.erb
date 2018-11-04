@@ -23,6 +23,14 @@
 <% @user.posts.first(20).reverse.each do |post| %>
   <div class="post-content-profile">
     <p><strong><%= post.created_at.to_s.split(" ")[0] %></strong></p>
-    <p><%= post.content %></p>
+    <p class="post-text"><%= post.content %></p>
+    <p><i class="fas fa-comment"></i> <%= post.comments.length %></p>
+    <% if post.comments.length > 0 %>
+      <% post.comments.each do |comment| %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{comment.user.github}", class: 'img-circle', style: 'width: 30px'%>
+        <%= comment.content %>
+        <br>
+      <% end %>
+    <% end %>
   </div>
 <% end %>

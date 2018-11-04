@@ -12,6 +12,14 @@
       <% end %>
       </p>
       <p><%= post.content %></p>
+      <p><i class="fas fa-comment"></i> <%= post.comments.length %></p>
+      <% if post.comments.length > 0 %>
+        <% post.comments.each do |comment| %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{comment.user.github}", class: 'img-circle', style: 'width: 25px'%>
+          <%= comment.content %>
+          <br>
+        <% end %>
+      <% end %>
       </div>
   <% end %>
 <% end %>

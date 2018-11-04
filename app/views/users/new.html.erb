@@ -21,4 +21,7 @@
   </div>
 
   <%= f.submit class: 'btn btn-primary' %>
+  <% @user.errors.each do |attr,msg|  %>
+    <%= msg %>
+  <% end %>
 <% end %>
