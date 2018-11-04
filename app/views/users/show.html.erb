@@ -24,10 +24,14 @@
   <div class="post-content-profile">
     <p><strong><%= post.created_at.to_s.split(" ")[0] %></strong></p>
     <p class="post-text"><%= post.content %></p>
-    <p><i class="fas fa-comment"></i> <%= post.comments.length %></p>
+    <%= link_to new_post_comment_path(post) do %>
+      <p><i class="fas fa-comment"></i> <%= post.comments.length %></p>
+    <% end %>
     <% if post.comments.length > 0 %>
       <% post.comments.each do |comment| %>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{comment.user.github}", class: 'img-circle', style: 'width: 30px'%>
+        <%= link_to comment.user do %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{comment.user.github}", class: 'img-circle', style: 'width: 30px'%>
+        <% end %>
         <%= comment.content %>
         <br>
       <% end %>

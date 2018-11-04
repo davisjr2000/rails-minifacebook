@@ -1,4 +1,8 @@
-<h1>Add Comment</h1>
+<% if @post.user.name[-1].downcase == "s" %>
+  <h1>Add a Comment on <%= @post.user.name %>' post</h1>
+<% else %>
+  <h1>Add a Comment on <%= @post.user.name %>'s post</h1>
+<% end %>
   <%= simple_form_for [@post, @comment] do |f| %>
     <%= f.input :content %>
     <%= f.association :user %>
