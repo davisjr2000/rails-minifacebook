@@ -17,6 +17,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    @post = Post.find(params[:id])
+    @post.like += 1
+    @post.save
+    redirect_to posts_path
+  end
+
+  def dislike
+    @post = Post.find(params[:id])
+    @post.like -= 1
+    @post.save
+    redirect_to posts_path
+  end
+
   def post_params
     params.require(:post).permit(:content, :user_id)
   end

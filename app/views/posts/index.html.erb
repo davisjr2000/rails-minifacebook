@@ -14,6 +14,23 @@
       <p class="post-content-text"><%= post.content %></p>
       <%= link_to new_post_comment_path(post) do %>
       <p><i class="fas fa-comment"></i> <%= post.comments.length %></p>
+
+
+
+
+      <%= link_to like_path(post), method: :patch do %>
+        <p><%= post.like %><i class="far fa-thumbs-up"></i></p>
+        <% end %>
+
+      <%= link_to dislike_path(post), method: :patch do %>
+
+        <p>
+          Dislike
+        </p>
+      <% end %>
+
+
+
       <% end %>
       <% if post.comments.length > 0 %>
         <% post.comments.each do |comment| %>

@@ -5,4 +5,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   root to: "posts#index"
+
+  patch "/like/:id", to: "posts#like", as: "like"
+  patch "/dislike/:id", to: "posts#dislike", as: "dislike"
 end
