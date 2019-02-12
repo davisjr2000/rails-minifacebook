@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   patch "/like/:id", to: "posts#like", as: "like"
   patch "/dislike/:id", to: "posts#dislike", as: "dislike"
+
+  get "/post_form", to: "users#post_form", as: "post_form"
 end

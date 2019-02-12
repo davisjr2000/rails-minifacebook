@@ -5,4 +5,5 @@ class User < ApplicationRecord
   validates :github, presence: true, uniqueness: { message: "This github is already being used." }
   validates :job, presence: true
   validates :food, presence: true
+  accepts_nested_attributes_for :posts
 end
