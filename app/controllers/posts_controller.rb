@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:like, :dislike]
 
   def index
     @posts = Post.all
@@ -18,17 +19,20 @@ class PostsController < ApplicationController
   end
 
   def like
-    @post = Post.find(params[:id])
     @post.like += 1
+    @post.save
+  end
+
+  def dislike
+    @post.like -= 1
     @post.save
     redirect_to posts_path
   end
 
-  def dislike
-    @post = Post.find(params[:id])
-    @post.like -= 1
-    @post.save
-    redirect_to posts_path
+  private
+
+  def set_post
+     @post = Post.find(params[:id])
   end
 
   def post_params
